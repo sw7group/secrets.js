@@ -71,7 +71,7 @@ export function hex2str(str: string, bytesPerChar?: number): string
 /**
  * Generates a random bits-length number string using the PRNG
  */
-export async function random(bits: number): Promise<string>
+export function random(bits: number): Promise<string>
 
 /**
  * Divides a `secret` number String str expressed in radix `inputRadix` (optional, default 16)
@@ -79,7 +79,7 @@ export async function random(bits: number): Promise<string>
  * requiring `threshold` number of shares to reconstruct the secret.
  * Optionally, zero-pads the secret to a length that is a multiple of padLength before sharing.
  */
-export async function split(
+export function split(
   secret: string,
   numShares: number,
   threshold: number,
@@ -151,7 +151,7 @@ export function _lagrange(
  * Note: no error-checking at this stage! If `secret` is NOT
  * a NUMBER less than 2^bits-1, the output will be incorrect!
  */
-export async function _getShares(
+export function _getShares(
   secret: number,
   numShares: number,
   threshold: number
