@@ -1,4 +1,4 @@
-# react-native-secret-sharing
+# secrets.js for React Native
 
 - [What is it?](#what-is-it)
 - [Examples](#examples)
@@ -13,7 +13,7 @@
 
 ## About
 
-react-native-secret-sharing is an implementation of [Shamir's threshold secret sharing scheme](http://en.wikipedia.org/wiki/Shamir's_Secret_Sharing) in JavaScript, for React Native.
+This is an implementation of [Shamir's threshold secret sharing scheme](http://en.wikipedia.org/wiki/Shamir's_Secret_Sharing) in JavaScript, for React Native.
 
 It can be used to split any "secret" (i.e. a password, text file, Bitcoin private key, anything) into _n_ number of "shares" (each the same size in bits as the original secret), requiring that exactly any number _t_ ("threshold") of them be present to reconstruct the original secret.
 
