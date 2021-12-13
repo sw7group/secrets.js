@@ -13,9 +13,7 @@ interface ShareComponents {
 }
 
 type RNGType =
-  | "nodeCryptoRandomBytes"
-  | "browserCryptoGetRandomValues"
-  | "testRandom"
+    "reactNativeCryptoRandomKey"
 
 type Shares = Array<string>
 
@@ -73,7 +71,7 @@ export function hex2str(str: string, bytesPerChar?: number): string
 /**
  * Generates a random bits-length number string using the PRNG
  */
-export function random(bits: number): string
+export async function random(bits: number): Promise<string>
 
 /**
  * Divides a `secret` number String str expressed in radix `inputRadix` (optional, default 16)
@@ -81,12 +79,12 @@ export function random(bits: number): string
  * requiring `threshold` number of shares to reconstruct the secret.
  * Optionally, zero-pads the secret to a length that is a multiple of padLength before sharing.
  */
-export function split(
+export async function split(
   secret: string,
   numShares: number,
   threshold: number,
   padLength?: number
-): Shares
+): Promise<Shares>
 
 /**
  * Generate a new share with id `id` (a number between 1 and 2^bits-1)
@@ -153,11 +151,11 @@ export function _lagrange(
  * Note: no error-checking at this stage! If `secret` is NOT
  * a NUMBER less than 2^bits-1, the output will be incorrect!
  */
-export function _getShares(
+export async function _getShares(
   secret: number,
   numShares: number,
   threshold: number
-): Array<Share>
+): Promise<Array<Share>>
 
 export function _constructPublicShareString(
   bits: string,
