@@ -81,7 +81,7 @@ export function random(bits: number): string
  * requiring `threshold` number of shares to reconstruct the secret.
  * Optionally, zero-pads the secret to a length that is a multiple of padLength before sharing.
  */
-export function share(
+export function split(
   secret: string,
   numShares: number,
   threshold: number,
